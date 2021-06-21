@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word Counter</title>
+    <style type="text/css" media="all">
+      h1
+      {
+        text-align: center;
+        font-size: 30px;
+        background: seagreen;
+        color: white;
+        padding: 10px;
+        margin: 50px;
+      }
+      #container
+      {
+        background: seagreen;
+        padding: 10px;
+        margin: 50px;
+        text-align: center;
+      }
+      .lab
+      {
+        margin: 20px;
+        padding: 20px;
+        text-align: center;
+        color: blue;
+      }
+      .inp
+      {
+        padding: 10px;
+        background: burlywood;
+        color: red;
+        margin: 10px;
+        text-align: center;
+      }
+      #input{
+        text-align: left;
+        height: 100px;
+      }
+    </style>
+</head>
+
+<body>
+  <h1>Word and Character Counter</h1>
+  <div id="container">
+    <div>
+      <label class="lab">Type Word</label><br />
+      <textarea id="input" class="inp" rows="8" cols="40"></textarea><br />
+      <label class="lab">Word/s</label><br />
+      <input id="cWord" value="0"class="inp"/><br />
+      <label class="lab">Character/s</label><br />
+      <input id="cChar" value="0" class="inp"/>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    let input = document. getElementById("input");
+    let chara = document.getElementById("cChar");
+    let word = document.getElementById("cWord");
+    
+    input.addEventListener('input', function(){
+      var text = this.value;
+      let char = text.length;
+      chara.value = char;
+      
+      text = text.trim();
+      let words = text.split(" ");
+      var cleanlist = words.filter(function(elm)
+      {
+        return elm != "";
+      });
+      
+      word.value = cleanlist.length;
+    });
+    
+  </script>
+</body>
+
+</html>
